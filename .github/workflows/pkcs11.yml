@@ -75,6 +75,8 @@ jobs:
           # The zip holds a top-level SoftHSM2\ folder: extract to C:\ to get C:\SoftHSM2\{bin,lib}.
           Expand-Archive softhsm2.zip -DestinationPath C:\
           "C:\SoftHSM2\bin" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+          # softhsm2-util.exe is 32-bit and loads softhsm2.dll from PATH; Dart (64-bit) uses softhsm2-x64.dll.
+          "C:\SoftHSM2\lib" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
           "C:\Program Files\OpenSC Project\OpenSC\tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
       - run: dart pub get
         shell: pwsh
