@@ -1,0 +1,87 @@
+name: ades_pkcs11 (SoftHSM2)
+# UNVERIFIED: written without a remote to run it on. Linux is also covered
+# locally by packages/ades_pkcs11/tool/test_in_docker.sh (same steps in a
+# container). macOS and Windows are CI-only.
+on:
+  pull_request:
+    paths: ['packages/ades_pkcs11/**', 'packages/ades/**', 'fixtures/**', '.github/workflows/pkcs11.yml']
+  push:
+    branches: [main, mvp]
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    env:
+      ADES_PKCS11_REQUIRED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: sudo apt-get update && sudo apt-get install -y softhsm2 opensc
+      - run: dart pub get
+      - name: Test against SoftHSM2
+        working-directory: packages/ades_pkcs11
+        run: |
+          mkdir -p "$RUNNER_TEMP/softhsm/tokens"
+          printf 'directories.tokendir = %s/softhsm/tokens\nobjectstore.backend = file\nlog.level = ERROR\n' "$RUNNER_TEMP" > "$RUNNER_TEMP/softhsm/softhsm2.conf"
+          export SOFTHSM2_CONF="$RUNNER_TEMP/softhsm/softhsm2.conf"
+          export ADES_PKCS11_MODULE="$(find /usr/lib -name libsofthsm2.so | head -n1)"
+          dart test -p vm
+
+  macos:
+    runs-on: macos-latest
+    env:
+      ADES_PKCS11_REQUIRED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: brew install softhsm opensc
+      - run: dart pub get
+      - name: Test against SoftHSM2
+        working-directory: packages/ades_pkcs11
+        run: |
+          mkdir -p "$RUNNER_TEMP/softhsm/tokens"
+          printf 'directories.tokendir = %s/softhsm/tokens\nobjectstore.backend = file\nlog.level = ERROR\n' "$RUNNER_TEMP" > "$RUNNER_TEMP/softhsm/softhsm2.conf"
+          export SOFTHSM2_CONF="$RUNNER_TEMP/softhsm/softhsm2.conf"
+          export ADES_PKCS11_MODULE="$(brew --prefix softhsm)/lib/softhsm/libsofthsm2.so"
+          dart test -p vm
+
+  windows:
+    # SoftHSM2 has no official Windows package manager build; this job
+    # expects an MSI/zip at SOFTHSM2_URL (set as a repository variable) and
+    # OpenSC from Chocolatey. Expect to adjust paths on first run.
+    runs-on: windows-latest
+    env:
+      ADES_PKCS11_REQUIRED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: choco install opensc -y --no-progress
+        shell: pwsh
+      - name: Install SoftHSM2
+        shell: pwsh
+        run: |
+          Invoke-WebRequest "${{ vars.SOFTHSM2_URL }}" -OutFile softhsm2.zip
+          Expand-Archive softhsm2.zip -DestinationPath C:\SoftHSM2
+          "C:\SoftHSM2\bin" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+          "C:\Program Files\OpenSC Project\OpenSC\tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+      - run: dart pub get
+        shell: pwsh
+      - name: Test against SoftHSM2
+        working-directory: packages/ades_pkcs11
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force "$env:RUNNER_TEMP\softhsm\tokens" | Out-Null
+          $tok = "$env:RUNNER_TEMP\softhsm\tokens".Replace('\','/')
+          "directories.tokendir = $tok`nobjectstore.backend = file`nlog.level = ERROR" | Out-File -Encoding ascii "$env:RUNNER_TEMP\softhsm\softhsm2.conf"
+          $env:SOFTHSM2_CONF = "$env:RUNNER_TEMP\softhsm\softhsm2.conf"
+          $env:ADES_PKCS11_MODULE = "C:\SoftHSM2\lib\softhsm2-x64.dll"
+          dart test -p vm

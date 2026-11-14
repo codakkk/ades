@@ -1,0 +1,32 @@
+name: Nightly DSS oracle
+on:
+  schedule:
+    - cron: '47 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      # Regenerates every golden with DSS but never overwrites the committed
+      # ones: a diff fails the job and the regenerated files are uploaded.
+      - name: Regenerate DSS goldens and report diffs
+        run: dart run tool/dss_oracle/run.dart --check --diff-out dss_golden_diffs
+      - name: Upload regenerated goldens that differ
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dss-golden-diffs
+          path: dss_golden_diffs
+          if-no-files-found: ignore
+      - name: Our reports vs goldens
+        working-directory: packages/ades
+        run: dart test -p vm test/dss_goldens_test.dart

@@ -1,0 +1,19 @@
+# DSS demo webapp at the pinned DSS version (see tool/dss_oracle/dss_version.txt).
+# No prebuilt image exists, so this builds the official Dockerfile of the
+# esig/dss-demonstrations release tag (Tomcat + the demo WAR). The first build
+# downloads Maven dependencies and takes several minutes.
+#
+#   docker compose -f tool/dss_webapp/docker-compose.yml up --build -d
+#   open http://localhost:9795
+#   docker compose -f tool/dss_webapp/docker-compose.yml down
+#
+# Keep the tag below equal to tool/dss_oracle/dss_version.txt
+# (test/dss_webapp_pin_test.dart checks this).
+services:
+  dss-webapp:
+    build:
+      context: https://github.com/esig/dss-demonstrations.git#6.5.1
+    image: ades-dss-webapp:6.5.1
+    ports:
+      - "127.0.0.1:${DSS_WEBAPP_PORT:-9795}:8080"
+    restart: "no"

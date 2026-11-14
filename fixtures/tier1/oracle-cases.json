@@ -1,0 +1,452 @@
+{
+  "validationTime": "2026-11-10T00:00:00Z",
+  "cases": [
+    {
+      "id": "positive-rsa2048-qsign-p7m",
+      "signature": "signatures/positive/rsa2048-qsign.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-qsign.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-rsa2048-auth-p7m",
+      "signature": "signatures/positive/rsa2048-auth.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-auth.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-p256-qsign-p7m",
+      "signature": "signatures/positive/p256-qsign.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-qsign.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-p256-auth-p7m",
+      "signature": "signatures/positive/p256-auth.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-auth.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-rsa2048-qsign-p7s",
+      "signature": "signatures/positive/rsa2048-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-qsign.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-rsa2048-auth-p7s",
+      "signature": "signatures/positive/rsa2048-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-auth.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-p256-qsign-p7s",
+      "signature": "signatures/positive/p256-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-qsign.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-p256-auth-p7s",
+      "signature": "signatures/positive/p256-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-auth.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-tampered-content",
+      "signature": "signatures/negative/rsa2048-tampered-content.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-tampered-content.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-wrong-message-digest",
+      "signature": "signatures/negative/rsa2048-wrong-message-digest.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-wrong-message-digest.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-non-der-signed-attrs",
+      "signature": "signatures/negative/rsa2048-non-der-signed-attrs.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-non-der-signed-attrs.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-expired-leaf",
+      "signature": "signatures/negative/rsa2048-expired-leaf.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-expired-leaf.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-no-signing-key-usage",
+      "signature": "signatures/negative/rsa2048-no-signing-key-usage.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-no-signing-key-usage.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-untrusted-root",
+      "signature": "signatures/negative/rsa2048-untrusted-root.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-untrusted-root.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-missing-intermediate",
+      "signature": "signatures/negative/rsa2048-missing-intermediate.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-missing-intermediate.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-issuer-not-ca",
+      "signature": "signatures/negative/rsa2048-issuer-not-ca.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-issuer-not-ca.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-path-length-exceeded",
+      "signature": "signatures/negative/rsa2048-path-length-exceeded.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-path-length-exceeded.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "negative-rsa2048-qsign-detached-tampered",
+      "signature": "signatures/positive/rsa2048-qsign.p7s",
+      "content": "content/hello-tampered.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-qsign-detached-tampered.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-rsa2048-qsign-p7m",
+      "signature": "signatures/ours/rsa2048-qsign.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-qsign.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-rsa2048-qsign-p7s",
+      "signature": "signatures/ours/rsa2048-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-qsign.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-rsa2048-auth-p7m",
+      "signature": "signatures/ours/rsa2048-auth.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-auth.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-rsa2048-auth-p7s",
+      "signature": "signatures/ours/rsa2048-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-auth.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-p256-qsign-p7m",
+      "signature": "signatures/ours/p256-qsign.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-qsign.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-p256-qsign-p7s",
+      "signature": "signatures/ours/p256-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-qsign.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-p256-auth-p7m",
+      "signature": "signatures/ours/p256-auth.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-auth.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ours-p256-auth-p7s",
+      "signature": "signatures/ours/p256-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-auth.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ber-rsa2048-qsign-indef",
+      "signature": "signatures/ber/rsa2048-qsign-indef.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ber/rsa2048-qsign-indef.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "ber-rsa2048-qsign-indef-chunked",
+      "signature": "signatures/ber/rsa2048-qsign-indef-chunked.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ber/rsa2048-qsign-indef-chunked.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "positive-rsa2048-qsign-p7m-norev",
+      "signature": "signatures/positive/rsa2048-qsign.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-qsign.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-rsa2048-auth-p7m-norev",
+      "signature": "signatures/positive/rsa2048-auth.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-auth.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-p256-qsign-p7m-norev",
+      "signature": "signatures/positive/p256-qsign.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-qsign.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-p256-auth-p7m-norev",
+      "signature": "signatures/positive/p256-auth.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-auth.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-rsa2048-qsign-p7s-norev",
+      "signature": "signatures/positive/rsa2048-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-qsign.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-rsa2048-auth-p7s-norev",
+      "signature": "signatures/positive/rsa2048-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/positive/rsa2048-auth.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-p256-qsign-p7s-norev",
+      "signature": "signatures/positive/p256-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-qsign.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-p256-auth-p7s-norev",
+      "signature": "signatures/positive/p256-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/positive/p256-auth.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-tampered-content-norev",
+      "signature": "signatures/negative/rsa2048-tampered-content.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-tampered-content.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-wrong-message-digest-norev",
+      "signature": "signatures/negative/rsa2048-wrong-message-digest.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-wrong-message-digest.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-non-der-signed-attrs-norev",
+      "signature": "signatures/negative/rsa2048-non-der-signed-attrs.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-non-der-signed-attrs.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-expired-leaf-norev",
+      "signature": "signatures/negative/rsa2048-expired-leaf.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-expired-leaf.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-no-signing-key-usage-norev",
+      "signature": "signatures/negative/rsa2048-no-signing-key-usage.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-no-signing-key-usage.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-untrusted-root-norev",
+      "signature": "signatures/negative/rsa2048-untrusted-root.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-untrusted-root.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-missing-intermediate-norev",
+      "signature": "signatures/negative/rsa2048-missing-intermediate.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-missing-intermediate.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-issuer-not-ca-norev",
+      "signature": "signatures/negative/rsa2048-issuer-not-ca.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-issuer-not-ca.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-path-length-exceeded-norev",
+      "signature": "signatures/negative/rsa2048-path-length-exceeded.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-path-length-exceeded.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "negative-rsa2048-qsign-detached-tampered-norev",
+      "signature": "signatures/positive/rsa2048-qsign.p7s",
+      "content": "content/hello-tampered.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/negative/rsa2048-qsign-detached-tampered.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-rsa2048-qsign-p7m-norev",
+      "signature": "signatures/ours/rsa2048-qsign.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-qsign.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-rsa2048-qsign-p7s-norev",
+      "signature": "signatures/ours/rsa2048-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-qsign.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-rsa2048-auth-p7m-norev",
+      "signature": "signatures/ours/rsa2048-auth.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-auth.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-rsa2048-auth-p7s-norev",
+      "signature": "signatures/ours/rsa2048-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/rsa2048-auth.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-p256-qsign-p7m-norev",
+      "signature": "signatures/ours/p256-qsign.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-qsign.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-p256-qsign-p7s-norev",
+      "signature": "signatures/ours/p256-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-qsign.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-p256-auth-p7m-norev",
+      "signature": "signatures/ours/p256-auth.p7m",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-auth.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ours-p256-auth-p7s-norev",
+      "signature": "signatures/ours/p256-auth.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/p256/root.der",
+      "golden": "signatures/ours/p256-auth.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ber-rsa2048-qsign-indef-norev",
+      "signature": "signatures/ber/rsa2048-qsign-indef.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ber/rsa2048-qsign-indef.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "ber-rsa2048-qsign-indef-chunked-norev",
+      "signature": "signatures/ber/rsa2048-qsign-indef-chunked.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ber/rsa2048-qsign-indef-chunked.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "positive-rsa2048-qsign-p7m-signer-anchor",
+      "signature": "signatures/positive/rsa2048-qsign.p7m",
+      "anchor": "pki/rsa2048/leaf-qsign.der",
+      "golden": "signatures/positive/rsa2048-qsign.p7m.dss-signer-anchor.json",
+      "policy": "default"
+    },
+    {
+      "id": "softhsm-rsa2048-qsign-p7m",
+      "signature": "signatures/ours/softhsm-rsa2048-qsign.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/softhsm-rsa2048-qsign.p7m.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "softhsm-rsa2048-qsign-p7m-norev",
+      "signature": "signatures/ours/softhsm-rsa2048-qsign.p7m",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/softhsm-rsa2048-qsign.p7m.dss-norev.json",
+      "policy": "no-revocation"
+    },
+    {
+      "id": "softhsm-rsa2048-qsign-p7s",
+      "signature": "signatures/ours/softhsm-rsa2048-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/softhsm-rsa2048-qsign.p7s.dss.json",
+      "policy": "default"
+    },
+    {
+      "id": "softhsm-rsa2048-qsign-p7s-norev",
+      "signature": "signatures/ours/softhsm-rsa2048-qsign.p7s",
+      "content": "content/hello.txt",
+      "anchor": "pki/rsa2048/root.der",
+      "golden": "signatures/ours/softhsm-rsa2048-qsign.p7s.dss-norev.json",
+      "policy": "no-revocation"
+    }
+  ]
+}

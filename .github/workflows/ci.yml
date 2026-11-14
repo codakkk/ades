@@ -1,0 +1,57 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main, mvp]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      - run: dart format --output=none --set-exit-if-changed .
+      - run: dart analyze --fatal-infos
+      - name: Enforce no dart:io in core (ADR-0002)
+        run: dart run tool/check_no_dart_io.dart packages/ades
+      - name: Tooling tests
+        run: dart test test
+
+  core:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # SDK floor is latest stable minus 2 minors (pubspec: ^3.10.0).
+        sdk: [stable]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+      - run: dart pub get
+      - name: VM (JIT)
+        working-directory: packages/ades
+        run: dart test -p vm
+      - name: VM (AOT)
+        working-directory: packages/ades
+        run: |
+          dart compile exe test/validate_rsa_p7m_test.dart -o ${{ runner.temp }}/core_aot
+          ${{ runner.temp }}/core_aot
+          dart compile exe test/path_validation_test.dart -o ${{ runner.temp }}/core_aot_path
+          ${{ runner.temp }}/core_aot_path
+      - name: ades_soft (VM, includes OpenSSL 3 cross-check)
+        working-directory: packages/ades_soft
+        run: dart test -p vm
+      - name: dart2js (Chrome)
+        working-directory: packages/ades
+        run: dart test -p chrome
+      - name: dart2wasm (Chrome)
+        working-directory: packages/ades
+        run: dart test -p chrome -c dart2wasm

@@ -1,0 +1,39 @@
+name: Nightly validation fuzz
+on:
+  schedule:
+    - cron: '27 3 * * *'
+  workflow_dispatch:
+    inputs:
+      seconds:
+        description: Fuzz time budget in seconds
+        default: '1800'
+
+permissions:
+  contents: read
+
+jobs:
+  validation-fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      # Mutates the tier-1 corpus through Validator.validate / validateStream.
+      # Invariants: nothing throws, <=5 s and <=512 MiB per input.
+      # Findings are uploaded; commit them under fixtures/fuzz/regressions
+      # (after fixing the bug) so test/fuzz_regression_test.dart replays them.
+      - name: Fuzz
+        run: >
+          dart run packages/ades/tool/validation_fuzz.dart
+          --seconds ${{ inputs.seconds || '1800' }}
+          --time-budget-ms 5000 --memory-mb 512
+          --out validation_fuzz_findings
+      - name: Upload findings
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-fuzz-findings
+          path: validation_fuzz_findings

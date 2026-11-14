@@ -1,0 +1,35 @@
+name: Nightly DER differential fuzz
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+    inputs:
+      seconds:
+        description: Fuzz time budget in seconds
+        default: '3000'
+
+permissions:
+  contents: read
+
+jobs:
+  der-fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      - run: openssl version
+      - name: Differential fuzz vs OpenSSL 3
+        run: >
+          dart run packages/ades/tool/der_fuzz.dart
+          --seconds ${{ inputs.seconds || '3000' }}
+          --out der_fuzz_findings
+      - name: Upload disagreements
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: der-fuzz-findings
+          path: der_fuzz_findings

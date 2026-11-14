@@ -1,0 +1,22 @@
+{
+  "dssVersion": "6.5.1",
+  "validationTime": "2026-11-10T00:00:00Z",
+  "policy": "default",
+  "signatures": [
+    {
+      "index": 0,
+      "indication": "INDETERMINATE",
+      "subIndication": "CERTIFICATE_CHAIN_GENERAL_FAILURE",
+      "signingTime": "2026-11-09T10:20:34Z",
+      "scope": [{"kind": "FULL", "name": "hello.txt"}],
+      "blocks": {
+        "FC": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_FC_IEFF", "status": "OK"}, {"name": "BBB_FC_ISD", "status": "OK"}, {"name": "BBB_FC_ISRIA", "status": "OK"}]},
+        "ISC": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_ICS_ISCI", "status": "OK"}, {"name": "BBB_ICS_ISACDP", "status": "OK"}, {"name": "BBB_ICS_ICDVV", "status": "OK"}, {"name": "BBB_ICS_AIDNASNE", "status": "OK"}]},
+        "VCI": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_VCI_ISPK", "status": "OK"}]},
+        "XCV": {"indication": "INDETERMINATE", "subIndication": "CERTIFICATE_CHAIN_GENERAL_FAILURE", "constraints": [{"name": "BBB_XCV_CCCBB", "status": "OK"}, {"name": "BBB_XCV_HPCCVVT", "status": "OK"}, {"name": "BBB_XCV_SUB", "status": "NOT_OK"}], "subXCV": [{"certificate": "C-3992B8A3509C79AB2783221F2AE895BD30A7B97BCB5191FF7B0D3269A9A2CEE2", "trustAnchor": false, "indication": "INDETERMINATE", "subIndication": "CERTIFICATE_CHAIN_GENERAL_FAILURE", "constraints": [{"name": "QUAL_UNIQUE_CERT", "status": "OK"}, {"name": "BBB_XCV_PSEUDO_USE", "status": "OK"}, {"name": "BBB_XCV_ISNSSC", "status": "OK"}, {"name": "BBB_XCV_ICSI", "status": "OK"}, {"name": "BBB_XCV_DCIDNMSDNIC", "status": "OK"}, {"name": "BBB_XCV_ISCGKU", "status": "OK"}, {"name": "BBB_XCV_AIA_PRES", "status": "WARNING"}, {"name": "BBB_XCV_ICPTV", "status": "OK"}, {"name": "BBB_XCV_DCSBSINC", "status": "OK"}, {"name": "BBB_XCV_IAKIP", "status": "OK"}, {"name": "BBB_XCV_DCCUCE", "status": "OK"}, {"name": "BBB_XCV_DCCFCE", "status": "OK"}, {"name": "BBB_XCV_REVOC_PRES", "status": "WARNING"}, {"name": "BBB_XCV_IRDPFC", "status": "NOT_OK"}]}, {"certificate": "C-F6E91A8AFF5C349F76F5B1FFAF2D234144C320D3DD4A2CF1DE0114698F935E1A", "trustAnchor": false, "indication": "INDETERMINATE", "subIndication": "CERTIFICATE_CHAIN_GENERAL_FAILURE", "constraints": [{"name": "BBB_XCV_ICSI", "status": "OK"}, {"name": "BBB_XCV_ICAC", "status": "OK"}, {"name": "BBB_XCV_DCIDNMSDNIC", "status": "OK"}, {"name": "BBB_XCV_ICPDV", "status": "OK"}, {"name": "BBB_XCV_ISCGKU", "status": "OK"}, {"name": "BBB_XCV_ICPTV", "status": "OK"}, {"name": "BBB_XCV_DCSBSINC", "status": "OK"}, {"name": "BBB_XCV_IAKIP", "status": "OK"}, {"name": "BBB_XCV_ISKIP", "status": "OK"}, {"name": "BBB_XCV_DCCUCE", "status": "OK"}, {"name": "BBB_XCV_DCCFCE", "status": "OK"}, {"name": "BBB_XCV_IRDPFC", "status": "NOT_OK"}]}, {"certificate": "C-9EEE89DD2D6E6155B6C833DD8BBCA74F05D58230323B7853CCD152BBC74FEFFE", "trustAnchor": true, "indication": "PASSED", "subIndication": null, "constraints": []}]},
+        "CV": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_CV_IRDOF", "status": "OK"}, {"name": "BBB_CV_IRDOI", "status": "OK"}, {"name": "BBB_CV_ISI", "status": "OK"}]},
+        "SAV": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_SAV_ISSV", "status": "OK"}, {"name": "BBB_ICS_ISASCP", "status": "OK"}, {"name": "BBB_ICS_ISASCPU", "status": "OK"}, {"name": "BBB_SAV_DSCACRCC", "status": "OK"}, {"name": "BBB_SAV_ISQPSTP", "status": "OK"}, {"name": "BBB_SAV_ISQPSTWSCVR", "status": "OK"}, {"name": "BBB_SAV_ISQPMDOSPP", "status": "OK"}, {"name": "ACCM", "status": "OK"}]}
+      }
+    }
+  ]
+}

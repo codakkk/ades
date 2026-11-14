@@ -1,0 +1,12 @@
+.dart_tool/
+pubspec.lock
+build/
+
+# Private tier-2 (real CNS card) material: never committed (ADR-0010)
+tier2-private/
+
+# Local Claude Code state (worktrees, local settings)
+.claude/
+
+# Local issue tracker / specs: kept out of the public repo
+.scratch/

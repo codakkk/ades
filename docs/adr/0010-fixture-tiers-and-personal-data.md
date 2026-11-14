@@ -1,0 +1,5 @@
+# Test fixtures are tiered; no real personal data in the public repo
+
+Real CNS/CIE signatures carry name, surname and codice fiscale, so committing them would publish personal data (GDPR). ETSI plugtest samples generally can't be redistributed. Tier 1 (public, in repo): synthetic fixtures from our own test CA hierarchies that copy real Italian qualified certificate profiles with fake identities, test trusted lists, and DSS test resources only where their license allows, with attribution. Tier 2 (private, never committed): the real Italian `.p7m`/PDF corpus and real CNS signatures, run locally or in private CI, with only aggregate results published. Tier 3: plugtest material, run locally under its terms. The MVP's real-CNS exit criterion runs in tier 2.
+
+DSS oracle results are committed as golden JSON per tier-1 fixture, produced by our own thin Java CLI against pinned DSS libraries. PRs diff against the goldens. Nightly runs and DSS version bumps regenerate them. Every remaining divergence from DSS is listed with a reason in a known-divergences file.

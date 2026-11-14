@@ -1,0 +1,14 @@
+name: ades_soft
+description: In-memory signing credentials (PKCS#12/PEM) for the ades workspace. Not side-channel hardened.
+version: 0.0.1
+publish_to: none
+environment:
+  sdk: ^3.10.0
+resolution: workspace
+dependencies:
+  ades: any
+  collection: ^1.19.0
+  pointycastle: ^4.0.0
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0

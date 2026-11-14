@@ -1,0 +1,17 @@
+name: ades_cli
+description: Command-line tool to sign and validate AdES signatures (part of the ades workspace).
+version: 0.0.1
+publish_to: none
+environment:
+  sdk: ^3.10.0
+resolution: workspace
+executables:
+  ades:
+dependencies:
+  ades: any
+  ades_pkcs11: any
+  ades_soft: any
+  args: ^2.5.0
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0

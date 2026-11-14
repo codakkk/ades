@@ -1,0 +1,13 @@
+name: ades_pkcs11
+description: PKCS#11 signing credentials (smart cards, HSMs) for the ades workspace. Loads a module by path via dart:ffi.
+version: 0.0.1
+publish_to: none
+environment:
+  sdk: ^3.10.0
+resolution: workspace
+dependencies:
+  ades: any
+  ffi: ^2.1.0
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0

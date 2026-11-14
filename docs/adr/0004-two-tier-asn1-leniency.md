@@ -1,0 +1,3 @@
+# Two-tier ASN.1 leniency: bounded BER outside, strict DER inside
+
+Real Italian `.p7m` files often use indefinite-length BER for the outer CMS structure, and some legacy certificates contain non-DER quirks. Strict DER everywhere would reject real files. Full leniency invites malleability. The outer CMS structure gets bounded BER (indefinite length allowed, depth/size limits enforced). Signed attributes, TBSCertificate and TSTInfo get strict DER. Hashing always uses the original bytes, never a re-encoding. A non-DER signed-attributes SET is a failure (matches DSS). Other non-DER fields produce report warnings. The BER reader is incremental, so enveloping CAdES can be read and written as a stream (multi-GB `.p7m`).

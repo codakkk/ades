@@ -1,0 +1,22 @@
+{
+  "dssVersion": "6.5.1",
+  "validationTime": "2026-11-10T00:00:00Z",
+  "policy": "no-revocation",
+  "signatures": [
+    {
+      "index": 0,
+      "indication": "INDETERMINATE",
+      "subIndication": "OUT_OF_BOUNDS_NO_POE",
+      "signingTime": "2026-11-09T10:20:34Z",
+      "scope": [{"kind": "FULL", "name": null}],
+      "blocks": {
+        "FC": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_FC_IEFF", "status": "OK"}, {"name": "BBB_FC_ISD", "status": "OK"}, {"name": "BBB_FC_ISRIA", "status": "OK"}]},
+        "ISC": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_ICS_ISCI", "status": "OK"}, {"name": "BBB_ICS_ISACDP", "status": "OK"}, {"name": "BBB_ICS_ICDVV", "status": "OK"}, {"name": "BBB_ICS_AIDNASNE", "status": "OK"}]},
+        "VCI": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_VCI_ISPK", "status": "OK"}]},
+        "XCV": {"indication": "INDETERMINATE", "subIndication": "OUT_OF_BOUNDS_NO_POE", "constraints": [{"name": "BBB_XCV_CCCBB", "status": "OK"}, {"name": "BBB_XCV_HPCCVVT", "status": "OK"}, {"name": "BBB_XCV_SUB", "status": "NOT_OK"}], "subXCV": [{"certificate": "C-43632540B86D0ADF6883B26A0DBEA9FA50AE47236F8368DC9A892C82D891CAFC", "trustAnchor": false, "indication": "INDETERMINATE", "subIndication": "OUT_OF_BOUNDS_NO_POE", "constraints": [{"name": "QUAL_UNIQUE_CERT", "status": "OK"}, {"name": "BBB_XCV_PSEUDO_USE", "status": "OK"}, {"name": "BBB_XCV_ISNSSC", "status": "OK"}, {"name": "BBB_XCV_ICSI", "status": "OK"}, {"name": "BBB_XCV_DCIDNMSDNIC", "status": "OK"}, {"name": "BBB_XCV_ISCGKU", "status": "OK"}, {"name": "BBB_XCV_AIA_PRES", "status": "WARNING"}, {"name": "BBB_XCV_ICPTV", "status": "OK"}, {"name": "BBB_XCV_DCSBSINC", "status": "OK"}, {"name": "BBB_XCV_IAKIP", "status": "OK"}, {"name": "BBB_XCV_DCCUCE", "status": "OK"}, {"name": "BBB_XCV_DCCFCE", "status": "OK"}, {"name": "BBB_XCV_REVOC_PRES", "status": "WARNING"}, {"name": "BBB_XCV_IRDPFC", "status": "IGNORED"}, {"name": "ACCM", "status": "OK"}, {"name": "BBB_XCV_ICTIVRSC", "status": "NOT_OK"}]}, {"certificate": "C-617100DE83A32E4D642C9D2FED3FF623931B0B0997D267197FCF9C877F2D6CFE", "trustAnchor": false, "indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_XCV_ICSI", "status": "OK"}, {"name": "BBB_XCV_ICAC", "status": "OK"}, {"name": "BBB_XCV_DCIDNMSDNIC", "status": "OK"}, {"name": "BBB_XCV_ICPDV", "status": "OK"}, {"name": "BBB_XCV_ISCGKU", "status": "OK"}, {"name": "BBB_XCV_ICPTV", "status": "OK"}, {"name": "BBB_XCV_DCSBSINC", "status": "OK"}, {"name": "BBB_XCV_IAKIP", "status": "OK"}, {"name": "BBB_XCV_ISKIP", "status": "OK"}, {"name": "BBB_XCV_DCCUCE", "status": "OK"}, {"name": "BBB_XCV_DCCFCE", "status": "OK"}, {"name": "BBB_XCV_IRDPFC", "status": "IGNORED"}, {"name": "ACCM", "status": "OK"}]}, {"certificate": "C-5FBBC7020F07C26946423171378EDB3B3302BF3BDE19F803FCDD0F138F3AB0DE", "trustAnchor": true, "indication": "PASSED", "subIndication": null, "constraints": []}]},
+        "CV": {"indication": "PASSED", "subIndication": null, "constraints": [{"name": "BBB_CV_IRDOF", "status": "OK"}, {"name": "BBB_CV_IRDOI", "status": "OK"}, {"name": "BBB_CV_ISI", "status": "OK"}]},
+        "SAV": {"indication": "INDETERMINATE", "subIndication": "SIG_CONSTRAINTS_FAILURE", "constraints": [{"name": "BBB_SAV_ISSV", "status": "OK"}, {"name": "BBB_ICS_ISASCP", "status": "OK"}, {"name": "BBB_ICS_ISASCPU", "status": "OK"}, {"name": "BBB_SAV_DSCACRCC", "status": "OK"}, {"name": "BBB_SAV_ISQPSTP", "status": "OK"}, {"name": "BBB_SAV_ISQPSTWSCVR", "status": "NOT_OK"}]}
+      }
+    }
+  ]
+}

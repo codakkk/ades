@@ -1,0 +1,3 @@
+# No PDF xref reconstruction, for validation or signing
+
+PDF viewers silently rebuild broken cross-reference tables. A validator that rebuilds them differently from the viewer can be shown one document while the user sees another. We parse xref strictly: a broken PDF yields INDETERMINATE on validation and is refused on signing, because an incremental update appended to a guessed structure describes a guessed document. We'll revisit only with corpus data showing real-world breakage rates. Modification detection after the signed revision is an object-level diff checked against DocMDP/FieldMDP permissions. Visual (rendered) comparison is out of scope, and reports say so.

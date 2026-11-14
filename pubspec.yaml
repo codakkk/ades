@@ -1,0 +1,12 @@
+name: ades_workspace
+publish_to: none
+environment:
+  sdk: ^3.10.0
+workspace:
+  - packages/ades
+  - packages/ades_soft
+  - packages/ades_pkcs11
+  - packages/ades_cli
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0

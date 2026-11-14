@@ -1,0 +1,46 @@
+{
+  "divergences": [
+    {
+      "case": "negative-rsa2048-no-signing-key-usage",
+      "path": "signatures[0].subIndication",
+      "ours": "CHAIN_CONSTRAINTS_FAILURE",
+      "dss": "CERTIFICATE_CHAIN_GENERAL_FAILURE",
+      "reason": "Deliberate (user story 27): a signing certificate whose keyUsage has neither digitalSignature nor nonRepudiation is refused with CHAIN_CONSTRAINTS_FAILURE. DSS 6.5.1 only warns about a missing nonRepudiation (SigningCertificate/KeyUsage Level=WARN); with revocation ignored it returns TOTAL-PASSED, under the default policy its missing-revocation failure comes first."
+    },
+    {
+      "case": "negative-rsa2048-no-signing-key-usage",
+      "path": "signatures[0].blocks.XCV.subIndication",
+      "ours": "CHAIN_CONSTRAINTS_FAILURE",
+      "dss": "CERTIFICATE_CHAIN_GENERAL_FAILURE",
+      "reason": "Deliberate (user story 27): a signing certificate whose keyUsage has neither digitalSignature nor nonRepudiation is refused with CHAIN_CONSTRAINTS_FAILURE. DSS 6.5.1 only warns about a missing nonRepudiation (SigningCertificate/KeyUsage Level=WARN); with revocation ignored it returns TOTAL-PASSED, under the default policy its missing-revocation failure comes first."
+    },
+    {
+      "case": "negative-rsa2048-no-signing-key-usage-norev",
+      "path": "signatures[0].indication",
+      "ours": "INDETERMINATE",
+      "dss": "TOTAL-PASSED",
+      "reason": "Deliberate (user story 27): a signing certificate whose keyUsage has neither digitalSignature nor nonRepudiation is refused with CHAIN_CONSTRAINTS_FAILURE. DSS 6.5.1 only warns about a missing nonRepudiation (SigningCertificate/KeyUsage Level=WARN); with revocation ignored it returns TOTAL-PASSED, under the default policy its missing-revocation failure comes first."
+    },
+    {
+      "case": "negative-rsa2048-no-signing-key-usage-norev",
+      "path": "signatures[0].subIndication",
+      "ours": "CHAIN_CONSTRAINTS_FAILURE",
+      "dss": null,
+      "reason": "Deliberate (user story 27): a signing certificate whose keyUsage has neither digitalSignature nor nonRepudiation is refused with CHAIN_CONSTRAINTS_FAILURE. DSS 6.5.1 only warns about a missing nonRepudiation (SigningCertificate/KeyUsage Level=WARN); with revocation ignored it returns TOTAL-PASSED, under the default policy its missing-revocation failure comes first."
+    },
+    {
+      "case": "negative-rsa2048-no-signing-key-usage-norev",
+      "path": "signatures[0].blocks.XCV.indication",
+      "ours": "INDETERMINATE",
+      "dss": "PASSED",
+      "reason": "Deliberate (user story 27): a signing certificate whose keyUsage has neither digitalSignature nor nonRepudiation is refused with CHAIN_CONSTRAINTS_FAILURE. DSS 6.5.1 only warns about a missing nonRepudiation (SigningCertificate/KeyUsage Level=WARN); with revocation ignored it returns TOTAL-PASSED, under the default policy its missing-revocation failure comes first."
+    },
+    {
+      "case": "negative-rsa2048-no-signing-key-usage-norev",
+      "path": "signatures[0].blocks.XCV.subIndication",
+      "ours": "CHAIN_CONSTRAINTS_FAILURE",
+      "dss": null,
+      "reason": "Deliberate (user story 27): a signing certificate whose keyUsage has neither digitalSignature nor nonRepudiation is refused with CHAIN_CONSTRAINTS_FAILURE. DSS 6.5.1 only warns about a missing nonRepudiation (SigningCertificate/KeyUsage Level=WARN); with revocation ignored it returns TOTAL-PASSED, under the default policy its missing-revocation failure comes first."
+    }
+  ]
+}
