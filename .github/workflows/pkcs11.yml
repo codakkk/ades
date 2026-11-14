@@ -53,9 +53,9 @@ jobs:
           dart test -p vm
 
   windows:
-    # SoftHSM2 has no official Windows package manager build; this job
-    # expects an MSI/zip at SOFTHSM2_URL (set as a repository variable) and
-    # OpenSC from Chocolatey. Expect to adjust paths on first run.
+    # SoftHSM2 has no Windows package manager build: use the portable zip of
+    # disig/SoftHSM2-for-Windows v2.5.0 (latest), pinned by SHA-256. OpenSC
+    # comes from Chocolatey.
     runs-on: windows-latest
     env:
       ADES_PKCS11_REQUIRED: '1'
@@ -69,9 +69,14 @@ jobs:
       - name: Install SoftHSM2
         shell: pwsh
         run: |
-          Invoke-WebRequest "${{ vars.SOFTHSM2_URL }}" -OutFile softhsm2.zip
-          Expand-Archive softhsm2.zip -DestinationPath C:\SoftHSM2
+          Invoke-WebRequest "https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.5.0/SoftHSM2-2.5.0-portable.zip" -OutFile softhsm2.zip
+          $hash = (Get-FileHash softhsm2.zip -Algorithm SHA256).Hash
+          if ($hash -ne '85273BCC1A6B90E877F7BB4F7E90221D57103D8F5241D154A79DD730A135B910') { throw "SoftHSM2 zip hash mismatch: $hash" }
+          # The zip holds a top-level SoftHSM2\ folder: extract to C:\ to get C:\SoftHSM2\{bin,lib}.
+          Expand-Archive softhsm2.zip -DestinationPath C:\
           "C:\SoftHSM2\bin" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+          # softhsm2-util.exe is 32-bit and loads softhsm2.dll from PATH; Dart (64-bit) uses softhsm2-x64.dll.
+          "C:\SoftHSM2\lib" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
           "C:\Program Files\OpenSC Project\OpenSC\tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
       - run: dart pub get
         shell: pwsh
