@@ -1,0 +1,15 @@
+ades
+Copyright 2026 Ciro Carandente
+
+Licensed under the Apache License, Version 2.0 (see LICENSE). You may not use
+this software except in compliance with the License.
+
+Third-party software keeps its own copyright and license terms:
+
+- Runtime dependencies (pointycastle, crypto, collection, json_annotation,
+  args, ffi) are resolved from pub.dev and are not vendored in this repository.
+- EU DSS (LGPL-2.1) is used only as a test-time validation oracle, run in a
+  container from tool/dss_oracle and tool/dss_webapp. No DSS code is included
+  in or distributed with these packages.
+- fixtures/dss/6.5.1/constraint.xml is the default validation policy published
+  with EU DSS 6.5.1, kept for comparison tests.

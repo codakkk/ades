@@ -23,7 +23,11 @@ dart test test
 (cd packages/ades && dart test)
 ```
 
-Keep each PR focused on one change and add tests for new behaviour.
+Keep each PR focused on one change and add tests for new behaviour. In the PR description, say what you verified and how.
+
+Using AI tools is fine: read the [AI usage](README.md#ai-usage) section of the README. Agents follow [`AGENTS.md`](AGENTS.md).
+
+Everyone taking part follows the [code of conduct](CODE_OF_CONDUCT.md).
 
 ## License
 

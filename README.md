@@ -33,10 +33,26 @@ dart run ades_cli:ades --help
 
 Design decisions are recorded in [`docs/adr/`](docs/adr) and the vocabulary in [`GLOSSARY.md`](GLOSSARY.md). Test fixtures are synthetic, with fake identities ([`fixtures/tier1/README.md`](fixtures/tier1/README.md)). The private keys in `fixtures/` are committed test keys and protect nothing.
 
-## Contributing and security
+## AI usage
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Report vulnerabilities privately, as described in [SECURITY.md](SECURITY.md).
+AI tools help with the development of `ades`: code, tests, reviews and documentation. The maintainer sets the design and architecture (see [`docs/adr/`](docs/adr)), reviews every generated change, and is responsible for everything that ships. Correctness is never taken on trust: signatures are checked against EU DSS as an independent oracle, and fixtures are made by OpenSSL, not by our own code.
+
+You are welcome to use AI tools when you contribute. You must understand, review and test what you submit, be able to explain your decisions, and respond to review feedback yourself. The same standards apply however a contribution was produced. Agents should start from [`AGENTS.md`](AGENTS.md), which holds the project's hard rules. Claude Code also reads it through `CLAUDE.md`.
+
+Submit only work you can stand behind. AI-generated code, test results and claims must be verified before they become part of a contribution.
+
+## Contributing
+
+Contributions are welcome. `ades` has a single maintainer, who reviews and merges every pull request. Please **open an issue first** for anything beyond a small fix, so we can agree on the approach before you write code.
+
+Areas where help is especially useful:
+
+- **Real smart cards**: testing `ades_pkcs11` with Italian CNS/CIE cards and their middleware on macOS, Windows and Linux. Report only aggregate results, never personal data.
+- **DSS comparison**: finding cases where our verdict differs from EU DSS, reproduced with synthetic fixtures.
+- **Security review**: the ASN.1/CMS parsers and the validation logic. Report findings privately, as described in [SECURITY.md](SECURITY.md).
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, checks and pull request rules, and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for how we work together.
 
 ## License
 
-[Apache-2.0](LICENSE)
+Licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for attribution and third-party notices.
